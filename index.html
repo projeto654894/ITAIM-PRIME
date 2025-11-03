@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Itaim Prime - Loja de Suplementos</title>
+  <link rel="stylesheet" href="estilo.css">
+</head>
+
+<div id="chatBotContainer">
+  <div id="chatHeader">Chat Itaim Prime 🤖</div>
+  <div id="chatMessages"></div>
+  <div id="chatInputContainer">
+    <input type="text" id="chatInput" placeholder="Escreva sua mensagem...">
+    <button onclick="sendMessage()">Enviar</button>
+  </div>
+</div>
+
+<body>
+ 
+  
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand-area">
+      <img src="imagens/fundo.jpg" alt="Logo ITAIM PRIME" class="logo">
+      <a href="sobrenos.html" class="brand">ITAIM PRIME</a>
+    </div>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Produtos</a>
+      <a href="sobrenos.html">Sobre nós</a>
+      <a href="roupa.html">Roupas</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </div>
+</header>
+
+  
+<section class="carousel" id="carrossel">
+  <div class="carousel-track">
+    <div class="slide"><img src="imagens/foto3carrosel.jpeg" alt="Slide 1"></div>   
+    <div class="slide"><img src="imagens/c1.jpeg" alt="Slide 2"></div>
+    <div class="slide"><img src="imagens/foto1carrosel.jpeg" alt="Slide 3"></div>
+  </div>
+  <button class="btn prev">‹</button>
+  <button class="btn next">›</button>
+  <div class="carousel-dots"></div>
+</section>
+
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <h1>BEM-VINDO AO ITAIM PRIME</h1>
+      <p>Qualidade, Confiança, Segurança ITAIM PRIME.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="index.html">Ver Produtos</a>
+        <a class="btn primary" href="sobrenos.html">Saiba Mais</a>
+        <a class="btn primary" href="roupa.html">Roupas</a>
+         <a class="btn primary" href="sobrenos.html">Sobre nós</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="container" id="produtos">
+  <h2 class="section-title">Nossos Produtos</h2>
+  <div class="prod-grid" id="productGrid">
+
+    <article class="card">
+      <img src="imagens/creatina.png" alt="Creatina IntegralMédica" class="sem-zoom">
+      <div class="card-body">
+        <h3>Creatina IntegralMédica</h3>
+        <p>Qualidade com o melhor preço! 300g</p>
+        <div class="price-row">
+          <span class="price">R$ 91,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="imagens/fotowhey.jpg" alt="Whey Protein" class="sem-zoom">
+      <div class="card-body">
+        <h3>Whey Protein</h3>
+        <p>Alta concentração de proteína — 900g.</p>
+        <div class="price-row">
+          <span class="price">R$ 129,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="imagens/fotowhey.jpg" alt="Whey Protein Isolado" class="sem-zoom">
+      <div class="card-body">
+        <h3>Whey Protein Isolado</h3>
+        <p>Alta concentração de proteína — 1kg.</p>
+        <div class="price-row">
+          <span class="price">R$ 156,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="imagens/pre.webp" alt="Pré Treino" class="sem-zoom">
+      <div class="card-body">
+        <h3>Pré Treino</h3>
+        <p>Melhor desempenho e mais disposição nos treinos.</p>
+        <div class="price-row">
+          <span class="price">R$ 156,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="imagens/glutamia.png" alt="Glutamina" class="sem-zoom">
+      <div class="card-body">
+        <h3>Glutamina</h3>
+        <p>Melhor qualidade de vida e recuperação muscular.</p>
+        <div class="price-row">
+          <span class="price">R$ 156,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="imagens/melatonina.webp" alt="Melatonina" class="sem-zoom">
+      <div class="card-body">
+        <h3>Melatonina</h3>
+        <p>Melhore seu sono e seu bem-estar.</p>
+        <div class="price-row">
+          <span class="price">R$ 156,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="imagens/dilapump.png" alt="Dilapump" class="sem-zoom">
+      <div class="card-body">
+        <h3>Dilapump</h3>
+        <p>Pump sinistro.</p>
+        <div class="price-row">
+          <span class="price">R$ 120,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="imagens/aiaia.png" alt="Garrafa" class="sem-zoom">
+      <div class="card-body">
+        <h3>Garrafa ItaimPrime</h3>
+        <p>Qualidade e preço bom.</p>
+        <div class="price-row">
+          <span class="price">R$ 30,90</span>
+          <button class="btn small add-to-cart">Comprar</button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <h4>Itaim Prime</h4>
+      <p>Performance e qualidade que você confia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <p>Email: itaimprime</p>
+      <p>WhatsApp: (81) 97320-7562</p>
+    </div>
+  </div>
+  <div class="copyright">
+    © <span id="year"></span> Itaim Prime. Todos os direitos reservados.
+  </div>
+</footer>
+
+<a href="https://wa.me/5581973207562?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Itaim%20Prime." class="whatsapp-float" target="_blank">💬</a>
+
+<script src="script.js"></script>
+</body>
+</html>

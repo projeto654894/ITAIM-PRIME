@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contato — Itaim Prime</title>
+  <link rel="stylesheet" href="csscontato.css">
+</head>
+
+<body>
+  <header class="site-header container">
+    <a class="brand" href="#">ITAIM PRIME</a>
+    <nav aria-label="principal">
+      <a href="index.html" style="color:var(--muted);text-decoration:none">Produtos</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Estamos ao seu dispor!</h1>
+      <p class="lead">
+        Caso tenha alguma dúvida geral, relacionada a vendas ou à imprensa, informe-nos suas informações de contato abaixo. 
+        Entraremos em contato o mais breve possível.
+      </p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="name">Nome</label>
+              <input id="name" name="name" type="text" placeholder="Seu nome completo" required>
+            </div>
+            <div class="field">
+              <label for="phone">Telefone</label>
+              <input id="phone" name="phone" type="text" placeholder="(XX) XXXXX-XXXX">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" placeholder="seu@exemplo.com" required>
+            </div>
+            <div class="field">
+              <label for="subject">Assunto</label>
+              <input id="subject" name="subject" type="text" placeholder="Ex: Dúvida sobre pedido">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" placeholder="Digite sua mensagem" required></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn">Enviar via WhatsApp</button>
+            <button type="button" class="btn secondary" id="clearBtn">Limpar</button>
+            <div style="margin-left:auto;font-size:13px;color:var(--muted)">
+              Atendimento: seg-sex, 09h-17h
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Informações -->
+      <aside class="contact-info">
+        <div class="card">
+          <h3 style="margin-top:0">Informações</h3>
+
+          <div class="info-item">
+            <strong>E-mail</strong>
+            <div class="muted">email@itaimprime.com</div>
+          </div>
+
+          <div class="info-item">
+            <strong>Telefone</strong>
+            <div class="muted">+55 (81) 97320-7562</div>
+          </div>
+
+          <div class="info-item">
+            <strong>Endereço</strong>
+            <div class="muted">Itaimópolis - Piauí, Brasil</div>
+          </div>
+
+          <div style="height:10px"></div>
+          <div style="display:flex;gap:8px;align-items:center;justify-content:space-between">
+            <a href="https://wa.me/5581973207562" target="_blank" rel="noopener" class="btn" style="flex:1;text-align:center">WhatsApp</a>
+            <a href="tel:+5581973207562" class="btn secondary" style="flex:1;text-align:center">Ligar</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="site-footer">©2025 ITAIM PRIME. Todos os direitos reservados.</footer>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contactForm');
+      const toast = document.getElementById('toast');
+      const clearBtn = document.getElementById('clearBtn');
+      const phoneInput = document.getElementById('phone');
+      const WHATSAPP_NUMBER = '5581973207562'; 
+
+      function showToast(text, success = true) {
+        toast.textContent = text;
+        toast.style.backgroundColor = success ? '#4caf50' : '#f44336';
+        toast.style.display = 'block';
+        toast.style.opacity = 1;
+        setTimeout(() => {
+          toast.style.opacity = 0;
+          setTimeout(() => toast.style.display = 'none', 400);
+        }, 3000);
+      }
+
+      clearBtn.addEventListener('click', () => form.reset());
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const phone = form.phone.value.trim();
+        const subject = form.subject.value.trim();
+        const message = form.message.value.trim();
+
+        if (!name || !email || !message) {
+          showToast('Preencha os campos obrigatórios.', false);
+          return;
+        }
+
+        const text = `🧾 *Novo contato ITAIM PRIME*\n\n` +
+                     `*Nome:* ${name}\n*E-mail:* ${email}\n*Telefone:* ${phone || 'Não informado'}\n` +
+                     `*Assunto:* ${subject || 'Não informado'}\n*Mensagem:* ${message}`;
+
+        const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+        window.open(whatsappURL, '_blank');
+
+        showToast('Mensagem enviada! Abrindo WhatsApp...');
+        form.reset();
+      });
+
+      phoneInput.addEventListener('input', function() {
+        let v = this.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.slice(0, 11);
+        this.value = v.length <= 10
+          ? v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3').replace(/-$/, '')
+          : v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+      });
+    });
+  </script>
+</body>
+</html>
