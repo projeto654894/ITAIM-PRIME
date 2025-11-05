@@ -1,13 +1,11 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".main-nav");
+
   if (burger && nav) {
     burger.addEventListener("click", () => {
       nav.classList.toggle("open");
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   const header = document.querySelector(".site-header");
   if (header) {
     window.addEventListener("scroll", () => {
@@ -24,9 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-
   const productGrid = document.getElementById("productGrid");
-  const WHATSAPP_NUMBER = "5581973207562"; 
+  const WHATSAPP_NUMBER = "5581973207562";
 
   if (productGrid) {
     productGrid.addEventListener("click", (e) => {
@@ -44,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ====== CARROSSEL ======
   const track = document.querySelector(".carousel-track");
   const dotsNav = document.querySelector(".carousel-dots");
   const nextBtn = document.querySelector(".carousel .next");
@@ -53,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = Array.from(track.children);
     let current = 0;
 
-   
+    dotsNav.innerHTML = "";
     slides.forEach((_, i) => {
       const dot = document.createElement("button");
       dot.classList.add("dot");
@@ -91,17 +88,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 5000);
   }
 
- 
+  // ====== CHAT BOT ======
   const chatMessages = document.getElementById("chatMessages");
   const chatInput = document.getElementById("chatInput");
+  const chatSendBtn = document.getElementById("chatSendBtn"); // ← botão de enviar
 
   if (chatMessages && chatInput) {
-   
+
     addBotMessage("👋 Olá! Seja bem-vindo à Itaim Prime! Como posso te ajudar hoje?");
 
+    // Enter no teclado
     chatInput.addEventListener("keypress", (e) => {
-      if (e.key === "Enter") sendMessage();
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
+      }
     });
+
+    // Clique no botão "Enviar"
+    if (chatSendBtn) {
+      chatSendBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        sendMessage();
+      });
+    }
 
     function sendMessage() {
       const userMessage = chatInput.value.trim();
@@ -134,21 +144,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getBotResponse(msg) {
       const lower = msg.toLowerCase();
+
       if (lower.includes("horário") || lower.includes("funciona")) {
         return "🕒 Nosso horário de funcionamento é das 8h às 20h, de segunda a sábado!";
-      } else if (lower.includes("endereço") || lower.includes("onde")) {
-        return "📍 Estamos localizados em Itaim — São Paulo. Envie 'localização' para receber o mapa!";
-      } else if (lower.includes("preço") || lower.includes("valor")) {
-        return "💸 Os preços variam conforme o produto. Quer que eu te envie o catálogo completo?";
-      } else if (lower.includes("whatsapp") || lower.includes("contato") || lower.includes("telefone")) {
+      } 
+      if (lower.includes("endereço") || lower.includes("onde")) {
+        return "📍 Estamos localizados em Itaim — Itainopólis - PI. Envie 'localização' para receber o mapa!";
+      } 
+      if (lower.includes("preço") || lower.includes("valor")) {
+        return "💸 Os preços variam conforme o produto. Deseja que eu te envie o catálogo completo?";
+      } 
+      if (lower.includes("whatsapp") || lower.includes("contato") || lower.includes("telefone")) {
         return `📞 Você pode falar conosco diretamente pelo WhatsApp: (${WHATSAPP_NUMBER.slice(2,4)}) ${WHATSAPP_NUMBER.slice(4,9)}-${WHATSAPP_NUMBER.slice(9)}`;
-      } else {
-        return `🤖 Para falar com um atendente, envie mensagem no WhatsApp: (${WHATSAPP_NUMBER.slice(2,4)}) ${WHATSAPP_NUMBER.slice(4,9)}-${WHATSAPP_NUMBER.slice(9)}`;
-      }
+      } 
+      
+      return `🤖 Para falar com um atendente, envie uma mensagem no WhatsApp: (${WHATSAPP_NUMBER.slice(2,4)}) ${WHATSAPP_NUMBER.slice(4,9)}-${WHATSAPP_NUMBER.slice(9)}`;
     }
   }
 
-
+  // ====== BOTÃO WHATSAPP FLUTUANTE ======
   const whatsappFloat = document.querySelector(".whatsapp-float");
   if (whatsappFloat) {
     whatsappFloat.addEventListener("mouseenter", () => {
@@ -158,5 +172,5 @@ document.addEventListener("DOMContentLoaded", () => {
       whatsappFloat.style.transform = "scale(1)";
     });
   }
-});
 
+});
