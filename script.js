@@ -1,21 +1,11 @@
-// ==============================================
-// ITAIM PRIME - JS PROFISSIONAL MODERNO
-// ==============================================
-// Modular, seguro e compatível com navegadores modernos
-// Desenvolvido por: Itaim Prime Web Team
-// Última atualização: 2025-10-29
-// ==============================================
+
 
 document.addEventListener("DOMContentLoaded", () => {
-  // ===============================
-  // Atualiza o ano do rodapé automaticamente
-  // ===============================
+
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ===============================
-  // Menu responsivo (hambúrguer)
-  // ===============================
+
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".main-nav");
   if (burger && nav) {
@@ -26,9 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===============================
-  // Cabeçalho dinâmico ao rolar
-  // ===============================
+
   const header = document.querySelector(".site-header");
   if (header) {
     window.addEventListener("scroll", () => {
@@ -36,11 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===============================
-  // Sistema de compra pelo WhatsApp
-  // ===============================
+
   const productGrid = document.getElementById("productGrid");
-  const WHATSAPP_NUMBER = "5581973207562"; // Número oficial da Itaim Prime
+  const WHATSAPP_NUMBER = "5581973207562"; 
 
   if (productGrid) {
     productGrid.addEventListener("click", (e) => {
@@ -58,9 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ===============================
-  // Carrossel de banners automático
-  // ===============================
   const track = document.querySelector(".carousel-track");
   const dotsNav = document.querySelector(".carousel-dots");
   const nextBtn = document.querySelector(".carousel .next");
@@ -70,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const slides = Array.from(track.children);
     let current = 0;
 
-    // Cria dots dinamicamente
+   
     slides.forEach((_, i) => {
       const dot = document.createElement("button");
       dot.classList.add("dot");
@@ -102,21 +85,18 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Troca automática de slides
     setInterval(() => {
       current = (current + 1) % slides.length;
       updateCarousel(current);
     }, 5000);
   }
 
-  // ===============================
-  // Chatbot inteligente básico
-  // ===============================
+ 
   const chatMessages = document.getElementById("chatMessages");
   const chatInput = document.getElementById("chatInput");
 
   if (chatMessages && chatInput) {
-    // Inicializa a primeira mensagem do bot
+   
     addBotMessage("👋 Olá! Seja bem-vindo à Itaim Prime! Como posso te ajudar hoje?");
 
     chatInput.addEventListener("keypress", (e) => {
@@ -179,3 +159,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
