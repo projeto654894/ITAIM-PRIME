@@ -32,7 +32,7 @@ body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--text);
   line-height: 1.5;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("imagens/fundo.jpg") center/cover no-repeat fixed;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("fundo.jpg") center/cover no-repeat fixed;
 }
 
 .container {
@@ -547,3 +547,4 @@ footer .copyright {
   .prod-grid { gap: 20px; }
   #chatBotContainer { width: 90%; right: 5%; bottom: 10px; }
 }
+
